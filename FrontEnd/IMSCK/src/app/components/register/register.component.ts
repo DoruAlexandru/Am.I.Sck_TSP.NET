@@ -21,6 +21,5 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(form: FormGroup): void {
-    console.log(form.getRawValue());
   }
 }

@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  height: 60px;
+  width: 100%;
+  background-color: rgb(238, 89, 114);
+
+  button {
+    height: 100%;
+    color: white;
+    font-weight: bold;
+  }
+}

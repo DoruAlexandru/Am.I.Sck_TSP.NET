@@ -1,0 +1,7 @@
+<div class="header">
+  <button mat-button [routerLink]="['questionnaire']">Questionnaire</button>
+  <button mat-button [routerLink]="['history']">History</button>
+  <button mat-button>User</button>
+  <button mat-button [routerLink]="['/login']" (click)="logout()">Logout</button>
+</div>
+<router-outlet></router-outlet>

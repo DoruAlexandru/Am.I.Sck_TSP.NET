@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   })
 
-  constructor(private http: HttpClient) { }
+  constructor(private router:Router, private readonly service: ServicesService) { }
 
   ngOnInit(): void {
   }
@@ -23,14 +24,11 @@ export class LoginComponent implements OnInit {
     let username = form.get('username')?.value;
     let password = form.get('password')?.value;
     let body = { username: username, password: password }
+    this.service.checkUser(body).subscribe(resp => {
+      localStorage.setItem('token',resp.data.token);
+      this.router.navigate(['homepage']);
 
-    if (username !== '' && username !== null && password !== '' && password !== null) {
-      this.http.post('https://localhost:44399/api/login/', body, { responseType: 'json' }).subscribe(
-        data => {
-          console.log(data)
-        }
-      )
-    }
+    })
   }
 
 }

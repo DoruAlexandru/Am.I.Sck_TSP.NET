@@ -1,0 +1,20 @@
+.symp-page {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    padding-top: 30px;
+
+    .symp-container {
+        padding-bottom: 20px;
+    }
+
+
+
+   .form-content {
+    width: 300px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    }
+}

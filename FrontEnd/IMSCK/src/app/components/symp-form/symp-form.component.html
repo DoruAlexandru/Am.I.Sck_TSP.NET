@@ -1,0 +1,29 @@
+<mat-card class="questionnaire-card">
+  <mat-card-header>
+    <mat-card-title>Symptoms Questionnaire</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="questionnaire-content">
+    <form [formGroup]="symptomsForm" (submit)="checkSymptoms(symptomsForm.value)">
+      <div *ngFor="let symptom of symptomsList" class="element">
+        <h3>{{ symptom.name }}</h3>
+        <p>{{ symptom.description }}</p>
+        <mat-radio-group
+          aria-label="Select an option"
+          class="radio-group"
+          formControlName='{{symptom.formControlName}}'
+          id="{{symptom.formControlName}}"
+          name="{{symptom.formControlName}}"
+        >
+          <mat-radio-button
+            ngDefaultControl
+            *ngFor="let severity of symptom.severities"
+            value="{{ severity.value }}"
+            class="radio-item"
+            >{{ severity.name }}</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+      <button mat-raised-button color="accent" type="submit">Submit answer</button>
+    </form>
+  </mat-card-content>
+</mat-card>
