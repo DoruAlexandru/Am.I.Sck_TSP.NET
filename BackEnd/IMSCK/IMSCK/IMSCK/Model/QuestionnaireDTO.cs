@@ -11,5 +11,7 @@ namespace IMSCK.Model
 
         public Dictionary<string, string> symptoms { get; set; }
 
+        public string username { get; set; }
+
     }
 }

@@ -8,6 +8,9 @@ namespace IMSCK.DAO
 {
     public interface IQuestionnaireDAO
     {
-        public Task<bool> addQuestionnaire(QuestionnaireDTO credentials);
+        public Task<int> addQuestionnaire(string username, int severityPercentage);
+        public Task<bool> addQuestionnaireSymptoms(QuestionnaireDTO credentials, int idQuestionnaire);
+
+        public Task<bool> rollbackAddQuestionnaire(int idQuestionnaire);
     }
 }
