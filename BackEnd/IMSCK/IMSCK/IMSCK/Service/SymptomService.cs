@@ -9,7 +9,7 @@ namespace IMSCK.Service
     public class SymptomService
     {
 
-        SymptomsDAO symptomsDAO;
+        private SymptomsDAO symptomsDAO;
 
         public SymptomService()
         {

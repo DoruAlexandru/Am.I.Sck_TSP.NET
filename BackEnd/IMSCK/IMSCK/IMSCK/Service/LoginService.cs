@@ -15,7 +15,7 @@ namespace IMSCK.Service
     public class LoginService
     {
 
-        ILoginDAO loginDAO;
+        private ILoginDAO loginDAO;
         private readonly JwtSettings jwtSettings;
 
         public LoginService()

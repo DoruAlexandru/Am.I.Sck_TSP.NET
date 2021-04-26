@@ -7,7 +7,7 @@ namespace IMSCK.Service
     public class RegisterService
     {
 
-        IRegisterDAO registerDAO;
+        private IRegisterDAO registerDAO;
 
         public RegisterService()
         {

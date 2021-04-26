@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace IMSCK.API
 {
-    [Route("symptom")]
+    [Route("symptom/")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class SymptomController : Controller
@@ -23,10 +23,10 @@ namespace IMSCK.API
         }
 
         [HttpGet]
+        [Route("getAllSymptoms/")]
         public async Task<IActionResult> Get()
         {
             ServiceResponse < List < Dictionary<string, string>>> response = await symptomService.getSymptoms();
-            System.Console.WriteLine(response.Data);
             if (response.Data.Count != 0)
             {
                 return Ok(response);
@@ -34,5 +34,6 @@ namespace IMSCK.API
             return BadRequest(response);
 
         }
+
     }
 }

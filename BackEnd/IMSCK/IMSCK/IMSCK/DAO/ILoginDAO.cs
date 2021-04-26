@@ -5,7 +5,6 @@ namespace IMSCK.DAO
 {
     interface ILoginDAO
     {
-
         public Task<bool> loginCheck(LoginDTO credentials);
 
     }

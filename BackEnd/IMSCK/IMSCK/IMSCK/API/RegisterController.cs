@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace IMSCK.API
 {
-    [Route("register")]
+    [Route("register/")]
     [ApiController]
     public class RegisterController : Controller
     {
-        private readonly RegisterService registerService;
+        private RegisterService registerService;
 
         public RegisterController(RegisterService registerService)
         {
@@ -18,6 +18,7 @@ namespace IMSCK.API
 
         }
 
+        [Route("createAccount/")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] RegisterDTO credentials)
         {

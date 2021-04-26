@@ -14,14 +14,12 @@ namespace IMSCK
     public class Startup
     {
         public static JwtSettings jwtSettings = new JwtSettings();
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
 
-            Startup startup = this;
-            startup.Configuration.Bind(nameof(Startup.jwtSettings), Startup.jwtSettings);
+            Configuration.Bind(nameof(Startup.jwtSettings), Startup.jwtSettings);
         }
 
         public IConfiguration Configuration { get; }

@@ -8,18 +8,19 @@ using System.Collections.Generic;
 
 namespace IMSCK.API
 {
-    [Route("login")]
+    [Route("login/")]
     [ApiController]
     public class LoginController : ControllerBase
     {
 
-        private readonly LoginService loginService;
+        private LoginService loginService;
 
         public LoginController()
         {
             loginService = new LoginService();
         }
 
+        [Route("checkUser/")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] LoginDTO credentials)
         {
