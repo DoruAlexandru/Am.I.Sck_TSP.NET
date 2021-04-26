@@ -21,8 +21,6 @@ namespace IMSCK.DAO
             conn.Open();
             int idQuestionnaire = await generateIdQuestionnaire();
 
-            System.Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss"));
-
             string sql = "insert into questionnaire(idQuestionnaire, userName, date, severityPercentage) values ("+
                 idQuestionnaire +", '"+ username + "', '"+ DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss") + "', "+severityPercentage + ");";
 
