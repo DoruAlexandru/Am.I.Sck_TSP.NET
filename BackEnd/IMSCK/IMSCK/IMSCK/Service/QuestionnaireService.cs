@@ -20,18 +20,36 @@ namespace IMSCK.Service
         {
             ServiceResponse<Dictionary<string, string>> response = new ServiceResponse<Dictionary<string, string>>();
 
-            bool result = await questionnaireDAO.addQuestionnaire(questionnaire);
+            int idQuestionnaire = await questionnaireDAO.addQuestionnaire(questionnaire.username, 50);
 
-            Dictionary<string, string> data = new Dictionary<string, string>();
-
-            if (result == false)
+            if (idQuestionnaire == -1)
             {
                 response.Message = "Could not add the questionnaire!";
                 response.Success = false;
                 return response;
             }
 
-            data.Add("result", result.ToString());
+            bool resultQuestionnaireSymptoms = await questionnaireDAO.addQuestionnaireSymptoms(questionnaire, idQuestionnaire);
+
+            Dictionary<string, string> data = new Dictionary<string, string>();
+
+            if (resultQuestionnaireSymptoms == false)
+            {
+                //rollback insert in questionnaire
+                //rollback insert in questionnaire
+                if (await questionnaireDAO.rollbackAddQuestionnaire(idQuestionnaire))
+                {
+                    response.Message = "Could not add the questionnaire, rolled back the inserted values!";
+                    response.Success = false;
+                    return response;
+                }
+
+                response.Message = "Could not add the questionnaire, rolled back unsuccesfully!";
+                response.Success = false;
+                return response;
+            }
+
+            data.Add("result", "add something here");
 
             //implement AI calculation based on responses
             //add details to response.Data
@@ -39,6 +57,50 @@ namespace IMSCK.Service
             response.Data = data;
 
             return response;
+        }
+
+        public async Task<ServiceResponse<List<Dictionary<string, string>>>> getQuestionnaires(string username)
+        {
+            List<Dictionary<string, string>> questionnaires = await questionnaireDAO.getQuestionnaires(username);
+
+            ServiceResponse<List<Dictionary<string, string>>> response = new ServiceResponse<List<Dictionary<string, string>>>();
+
+            if (questionnaires.Count != 0)
+            {
+                response.Data = questionnaires;
+                response.Success = true;
+                response.Message = "Questionnaires retrieved succesfully!";
+
+                return response;
+            }
+
+            response.Success = false;
+            response.Message = "No questionnaire found";
+
+            return response;
+
+        }
+
+        public async Task<ServiceResponse<List<Dictionary<string, string>>>> getQuestionnaireSymptoms(string username, int id)
+        {
+            List<Dictionary<string, string>> symptoms = await questionnaireDAO.getQuestionnaireSymptoms(username, id);
+
+            ServiceResponse<List<Dictionary<string, string>>> response = new ServiceResponse<List<Dictionary<string, string>>>();
+
+            if (symptoms.Count != 0)
+            {
+                response.Data = symptoms;
+                response.Success = true;
+                response.Message = "Questionnaire symptoms retrieved succesfully!";
+
+                return response;
+            }
+
+            response.Success = false;
+            response.Message = "No symptom found";
+
+            return response;
+
         }
 
     }

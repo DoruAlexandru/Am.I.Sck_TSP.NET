@@ -36,10 +36,11 @@ namespace IMSCK.Service
                 var tokenDescriptor = new SecurityTokenDescriptor {
 
                     Subject = new ClaimsIdentity(new[] {
+                        new Claim("Username", credentials.Username),
                         new Claim(JwtRegisteredClaimNames.Sub, credentials.Username),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(5),
+                    Expires = DateTime.UtcNow.AddMinutes(120),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
 

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace IMSCK.API
 {
-    [Route("login/")]
+    [Route("login")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace IMSCK.API
             loginService = new LoginService();
         }
 
-        [Route("checkUser/")]
+        [Route("checkUser")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] LoginDTO credentials)
         {

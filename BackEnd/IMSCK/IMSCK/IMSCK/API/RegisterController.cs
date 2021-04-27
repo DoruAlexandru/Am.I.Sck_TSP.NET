@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMSCK.API
 {
-    [Route("register/")]
+    [Route("register")]
     [ApiController]
     public class RegisterController : Controller
     {
@@ -18,7 +18,7 @@ namespace IMSCK.API
 
         }
 
-        [Route("createAccount/")]
+        [Route("createAccount")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] RegisterDTO credentials)
         {
@@ -29,7 +29,7 @@ namespace IMSCK.API
                 return Ok(check);
             }
             
-            return BadRequest("Account couldn not be created!");
+            return BadRequest("Account could not be created!");
 
         }
     }

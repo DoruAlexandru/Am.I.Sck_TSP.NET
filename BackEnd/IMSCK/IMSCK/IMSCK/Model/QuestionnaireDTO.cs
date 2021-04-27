@@ -8,8 +8,10 @@ namespace IMSCK.Model
 {
     public class QuestionnaireDTO
     {
-
         public Dictionary<string, string> symptoms { get; set; }
 
+        public string username { get; set; }
+
     }
+
 }

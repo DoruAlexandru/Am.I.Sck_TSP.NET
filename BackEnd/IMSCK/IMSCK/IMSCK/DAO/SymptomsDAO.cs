@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using IMSCK.Config;
+using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,7 +15,15 @@ namespace IMSCK.DAO
 
         public SymptomsDAO()
         {
-            conn = new MySqlConnection("server=localhost;user=root;password=root;database=tspnet");
+            var config = new ConfigurationBuilder()
+           .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+           .AddJsonFile("appsettings.json").Build();
+
+
+            var section = config.GetSection(nameof(DBConfig));
+            var dbConfig = section.Get<DBConfig>();
+
+            conn = new MySqlConnection(dbConfig.dbConnectionString);
         }
 
         public async Task<List<Dictionary<string, string>>> getSymptoms()
