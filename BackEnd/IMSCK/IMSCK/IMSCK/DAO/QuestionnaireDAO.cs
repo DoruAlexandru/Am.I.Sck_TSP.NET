@@ -159,10 +159,6 @@ namespace IMSCK.DAO
             System.Console.WriteLine(symptoms.Count);
 
             return symptoms;
-            conn.Open();
-            int idQuestionnaire = await generateIdQuestionnaire();
-
-            {
         }
     }
 }
