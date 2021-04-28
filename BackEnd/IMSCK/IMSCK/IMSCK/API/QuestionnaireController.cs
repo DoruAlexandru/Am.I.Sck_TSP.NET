@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace IMSCK.API
 {
-    [Route("questionnaire")]
+    [Route("questionnaire/")]
     [ApiController]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class QuestionnaireController : Controller

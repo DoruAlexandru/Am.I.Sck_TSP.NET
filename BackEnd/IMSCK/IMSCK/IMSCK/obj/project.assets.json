@@ -6137,19 +6137,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tudor\\.nuget\\packages\\": {}
+    "C:\\Users\\UnicornRoz\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
+      "projectUniqueName": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
       "projectName": "IMSCK",
-      "projectPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
-      "packagesPath": "C:\\Users\\tudor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\obj\\",
+      "projectPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
+      "packagesPath": "C:\\Users\\UnicornRoz\\.nuget\\packages\\",
+      "outputPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\tudor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\UnicornRoz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6222,7 +6227,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -1,6 +1,5 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Item } from 'src/app/models/item';
 import { Symptom } from 'src/app/models/symptom';
 
 @Component({

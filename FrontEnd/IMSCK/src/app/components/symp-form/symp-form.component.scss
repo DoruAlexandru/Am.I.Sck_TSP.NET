@@ -1,9 +1,10 @@
-.questionnaire-card {
+@import "src/styles/colors.scss";
 
+.questionnaire-card {
   mat-card-header {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid rgb(238, 230, 230);
+    border-bottom: 2px solid $light-grey;
   }
 
   .questionnaire-content {
@@ -12,33 +13,50 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
+      max-width: 600px;
       button {
         margin-top: 20px;
+        background-color: $yellow;
       }
     }
 
     .element {
       margin-top: 15px;
-
+      width: 100%;
       h3 {
         font-weight: bold;
       }
 
       p {
-        color: rgb(167, 161, 161);
+        color: $dark-grey;
+      }
+
+      mat-radio-button {
+        ::ng-deep {
+          .mat-radio-container {
+            .mat-radio-outer-circle {
+              border-color: $yellow;
+            }
+            .mat-radio-inner-circle {
+              background-color: $yellow;
+            }
+            .mat-radio-persistent-ripple {
+              background-color: $light-grey;
+            }
+          }
+        }
+      }
+      .radio-group {
+        display: flex;
+        align-items: center;
+      }
+
+      .radio-item {
+        display: flex;
+        align-items: center;
+
+        padding: 10px;
       }
     }
-    .radio-group{
-      display: flex;
-      align-items: center;
-  }
-
-  .radio-item{
-      display: flex;
-      align-items: center;
-
-      padding: 10px;
-  }
   }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMSCK.API
 {
-    [Route("register")]
+    [Route("register/")]
     [ApiController]
     public class RegisterController : Controller
     {

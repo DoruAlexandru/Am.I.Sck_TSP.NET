@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Item } from 'src/app/models/item';
+import { Severity } from 'src/app/models/severity';
 import { Symptom } from 'src/app/models/symptom';
 import { SymptomsService } from 'src/app/services/symptoms.service';
 
@@ -13,6 +13,25 @@ export class QuestionnaireComponent implements OnInit {
   constructor(private router:Router, private sympService: SymptomsService) {}
 
   show = false;
+
+  severitiesArray: Severity[] = [
+    {
+      name: 'Low',
+      value: 'Low',
+    },
+    {
+      name: 'Medium',
+      value: 'Medium',
+    },
+    {
+      name: 'High',
+      value: 'High',
+    },
+    {
+      name: 'Very high',
+      value: 'Very high',
+    }
+  ];
 
   symptoms: Symptom[] = [
     {
@@ -86,6 +105,14 @@ export class QuestionnaireComponent implements OnInit {
 
   ngOnInit(): void {
     this.sympService.getSelectedSymptoms().subscribe(res => {
+      if (res.length > 0) {
+        res.forEach((element: Symptom) => {
+          element.severities = this.severitiesArray;
+        });
+        this.symptoms = res;
+       } else {
+         this.router.navigate(['/homepage/symp-list'])
+       }
     })
   }
 

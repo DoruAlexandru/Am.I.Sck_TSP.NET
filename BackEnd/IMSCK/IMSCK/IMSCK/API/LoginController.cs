@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace IMSCK.API
 {
-    [Route("login")]
+    [Route("login/")]
     [ApiController]
     public class LoginController : ControllerBase
     {

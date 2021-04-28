@@ -1,18 +1,18 @@
 <div class="symp-page">
-  <h2>Please check your symptoms</h2>
+  <h2>Please select your symptoms</h2>
   <form [formGroup]="symptomsForm" (ngSubmit)="submitForm()">
     <div class="form-content">
       <div *ngFor="let symp of sympList; let i = index" class="symp-container">
-        <label>
+        <label class="checkbox">
           <input
             type="checkbox"
             [value]="symp.name"
             (change)="onCheckboxChange($event)"
           />
-          {{ symp.name }}
+          <span>{{ symp.name }}</span>
         </label>
       </div>
     </div>
-    <button mat-raised-button type="submit" color="warn">Submit</button>
+    <button mat-raised-button type="submit" color="accent">Submit</button>
   </form>
 </div>

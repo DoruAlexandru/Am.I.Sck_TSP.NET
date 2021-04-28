@@ -1,3 +1,5 @@
+@import 'src/styles/colors.scss';
+
 .page {
     height: 100%;
     display: flex;
@@ -7,13 +9,33 @@
 
     .login-card {
         width: 500px;
+
+        mat-card-header {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 10px;
+        }
+
+
         .login-content{
             .login-form {
                 display: flex;
                 flex-direction: column;
 
+                mat-form-field {
+                    ::ng-deep {
+                        .mat-form-field-label {
+                            color: $dark-grey;
+                        }
+                        .mat-form-field-ripple {
+                            background-color: $yellow;
+                        }
+                    }
+                }
+
                 .login-button {
                     margin-top: 16px;
+                    background-color: $yellow;
                 }
             }
         }
@@ -24,6 +46,7 @@
             flex-direction: column;
             button {
                 margin-bottom: 10px;
+                color: $dark-grey;
             }
         }
     }

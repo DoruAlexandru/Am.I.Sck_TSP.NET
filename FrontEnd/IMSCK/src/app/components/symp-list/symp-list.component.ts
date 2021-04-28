@@ -7,7 +7,7 @@ import { SymptomsService } from 'src/app/services/symptoms.service';
 @Component({
   selector: 'app-symp-list',
   templateUrl: './symp-list.component.html',
-  styleUrls: ['./symp-list.component.scss']
+  styleUrls: ['./symp-list.component.scss'],
 })
 export class SympListComponent implements OnInit {
   sympList: Symptom[] = [];
@@ -23,7 +23,7 @@ export class SympListComponent implements OnInit {
   ngOnInit(): void {
     this.symptomsForm = this.formBuilder.group({
       checkArray: this.formBuilder.array([])
-    })
+    });
     this.getSymptoms();
   }
 
@@ -31,7 +31,7 @@ export class SympListComponent implements OnInit {
   getSymptoms(): void {
     this.sympService.getSymptoms().subscribe(list => {
       this.sympList = list.data;
-    })
+    });
   }
 
   onCheckboxChange(event: any) {
@@ -52,7 +52,18 @@ export class SympListComponent implements OnInit {
   }
 
   submitForm() {
-    this.sympService.setSelectedSymptoms(this.symptomsForm.getRawValue());
+    let formValues = this.symptomsForm.getRawValue();
+    console.log(formValues);
+    let checkedSymptomsList: Symptom[] = [];
+    formValues.checkArray.forEach((value: string) => {
+      this.sympList.forEach((symptom) => {
+        if (value === symptom.name) {
+          checkedSymptomsList.push(symptom);
+        }
+      });
+    });
+    console.log(checkedSymptomsList);
+    this.sympService.setSelectedSymptoms(checkedSymptomsList);
     this.router.navigate(['homepage/questionnaire']);
   }
 }

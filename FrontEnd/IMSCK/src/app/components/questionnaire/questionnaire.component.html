@@ -1,14 +1,5 @@
 <div class="page-content">
-  <button
-    *ngIf="!show"
-    mat-raised-button
-    color="primary"
-    (click)="showQuestionnaire()"
-  >
-    Start questionnaire
-  </button>
-
-  <div class="questionnaire" *ngIf="show">
+  <div class="questionnaire">
     <app-symp-form
       [symptomsList]="symptoms"
       (submitForm)="getSubmitedSymptoms($event)"

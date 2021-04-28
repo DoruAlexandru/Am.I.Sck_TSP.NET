@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Symptom } from '../models/symptom';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,13 @@ export class SymptomsService {
    }
 
   getSymptoms(): Observable<any> {
-    return this.http.get('https://localhost:5001/symptom',
+    return this.http.get('https://localhost:5001/symptom/getAllSymptoms/',
     {
       headers: new HttpHeaders(this.setHeaders())
     })
   }
 
-  setSelectedSymptoms(newList: any): void {
+  setSelectedSymptoms(newList: Symptom[]): void {
     this.selectedSymptoms.next(newList);
   }
 

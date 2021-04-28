@@ -10,19 +10,13 @@ export class ServicesService {
   constructor(private readonly http: HttpClient) { }
 
   checkUser(body: any): Observable<any>{
-    return this.http.post('https://localhost:5001/login',body);
+    return this.http.post('https://localhost:5001/login/checkUser',body);
   }
 
   registerUser(body: any): Observable<any>{
-    return this.http.post('https://localhost:5001/register',body);
+    return this.http.post('https://localhost:5001/register/createAccount',body);
   }
 
-  sayHi(): Observable<any>{
-    return this.http.get('https://localhost:5001/Hi',
-    {
-      headers: new HttpHeaders(this.setHeaders())
-    });
-  }
 
   private setHeaders() {
     let token = localStorage.getItem('token');
