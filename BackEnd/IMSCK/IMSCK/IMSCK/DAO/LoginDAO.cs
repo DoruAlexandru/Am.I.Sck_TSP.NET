@@ -32,8 +32,13 @@ namespace IMSCK.DAO
             string md5StringPassword = AppHelper.GetMd5Hash(credentials.Password);
 
             conn.Open();
-            string sql = "select * from user where username = '" + credentials.Username + "' and password = '" + md5StringPassword + "'";
+            string sql = "select * from user where username = @username and password = @hash";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@username", credentials.Username);
+            cmd.Parameters.AddWithValue("@hash", md5StringPassword);
+            cmd.Prepare();
+
             MySqlDataReader result = await Task.Run(() =>
             {
                 return cmd.ExecuteReader();

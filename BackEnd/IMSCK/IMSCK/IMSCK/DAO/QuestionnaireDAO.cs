@@ -33,10 +33,16 @@ namespace IMSCK.DAO
             conn.Open();
             int idQuestionnaire = await generateIdQuestionnaire();
 
-            string sql = "insert into questionnaire(idQuestionnaire, userName, date, severityPercentage) values (" +
-                idQuestionnaire + ", '" + username + "', '" + DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss") + "', " + severityPercentage + ");";
+            string sql = "insert into questionnaire(idQuestionnaire, userName, date, severityPercentage) values (@idQuestionnaire, @username, @date, @severityPercentage);";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@idQuestionnaire", idQuestionnaire);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss"));
+            cmd.Parameters.AddWithValue("@severityPercentage", severityPercentage);
+            cmd.Prepare();
+
             int result = await Task.Run(() =>
             {
                 return cmd.ExecuteNonQuery();
@@ -55,8 +61,12 @@ namespace IMSCK.DAO
         {
             conn.Open();
 
-            string sql = "delete from questionnairesymptoms where idQuestionnaireSymptoms = " + idQuestionnaire;
+            string sql = "delete from questionnairesymptoms where idQuestionnaireSymptoms = @idQuestionnaire";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@idQuestionnaire", idQuestionnaire);
+            cmd.Prepare();
+
             int result = await Task.Run(() =>
             {
                 return cmd.ExecuteNonQuery();
@@ -69,8 +79,12 @@ namespace IMSCK.DAO
                 return false;
             }
 
-            sql = "delete from questionnaire where idQuestionnaire = " + idQuestionnaire;
+            sql = "delete from questionnaire where idQuestionnaire = @idQuestionnaire";
             cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@idQuestionnaire", idQuestionnaire);
+            cmd.Prepare();
+
             result = cmd.ExecuteNonQuery();
 
             if (result == 0)
@@ -90,9 +104,14 @@ namespace IMSCK.DAO
             int result = -1;
             foreach (string key in keyList)
             {
-                string sql = "insert into questionnairesymptoms(idQuestionnaireSymptoms, symptomName, symptomSeverity) values (" +
-                    idQuestionnaire + ", '" + key + "', '" + questionnaire.symptoms[key] + "');";
+                string sql = "insert into questionnairesymptoms(idQuestionnaireSymptoms, symptomName, symptomSeverity) values (@idQuestionnaireSymptoms, @symptomName, @symptomSeverity);";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@idQuestionnaireSymptoms", idQuestionnaire);
+                cmd.Parameters.AddWithValue("@symptomName", key);
+                cmd.Parameters.AddWithValue("@symptomSeverity", questionnaire.symptoms[key]);
+                cmd.Prepare();
+
                 result = await Task.Run(() =>
                 {
                     return cmd.ExecuteNonQuery();
@@ -125,8 +144,12 @@ namespace IMSCK.DAO
         public async Task<List<Dictionary<string, string>>> getQuestionnaires(string username)
         {
             conn.Open();
-            string sql = $"SELECT idQuestionnaire, userName, date, severityPercentage FROM questionnaire WHERE userName like '{username}'";
+            string sql = "SELECT idQuestionnaire, userName, date, severityPercentage FROM questionnaire WHERE userName = @username";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Prepare();
+
             MySqlDataReader result = await Task.Run(() =>
             {
                 return cmd.ExecuteReader();
@@ -154,11 +177,16 @@ namespace IMSCK.DAO
         public async Task<List<Dictionary<string, string>>> getQuestionnaireSymptoms(string username, int id)
         {
             conn.Open();
-            string sql = $"SELECT qs.idQuestionnaireSymptoms, qs.symptomName, qs.symptomSeverity FROM questionnairesymptoms qs" +
-                $" JOIN questionnaire q ON q.idQuestionnaire = qs.idQuestionnaireSymptoms WHERE q.userName like '{username}'" +
-                $" AND q.idQuestionnaire = {id}";
+            string sql = "SELECT qs.idQuestionnaireSymptoms, qs.symptomName, qs.symptomSeverity FROM questionnairesymptoms qs" +
+                " JOIN questionnaire q ON q.idQuestionnaire = qs.idQuestionnaireSymptoms WHERE q.userName = @username" +
+                " AND q.idQuestionnaire = @id";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+
             MySqlDataReader result = await Task.Run(() =>
             {
                 return cmd.ExecuteReader();

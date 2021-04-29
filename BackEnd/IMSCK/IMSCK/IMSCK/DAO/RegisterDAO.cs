@@ -34,8 +34,13 @@ namespace IMSCK.DAO
             {
                 string md5StringPassword = AppHelper.GetMd5Hash(credentials.Password);
 
-                string sql = "insert into user(userName, password) values('" + credentials.Username + "', '" + md5StringPassword + "');";
+                string sql = "insert into user(userName, password) values(@username, @hash);";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@username", credentials.Username);
+                cmd.Parameters.AddWithValue("@hash", md5StringPassword);
+                cmd.Prepare();
+
                 int result = await Task.Run(() =>
                 {
                     return cmd.ExecuteNonQuery();
@@ -54,8 +59,12 @@ namespace IMSCK.DAO
 
         private async Task<bool> findUser(RegisterDto credentials)
         {
-            string sql = "select * from user where username = '" + credentials.Username + "';";
+            string sql = "select * from user where username = @username";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+            cmd.Parameters.AddWithValue("@username", credentials.Username);
+            cmd.Prepare();
+
             MySqlDataReader result = await Task.Run(() =>
             {
                 return cmd.ExecuteReader();
