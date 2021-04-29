@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {}
+    "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {}
   },
   "projects": {
-    "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
+    "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
+        "projectUniqueName": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
         "projectName": "IMSCK",
-        "projectPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
-        "packagesPath": "C:\\Users\\UnicornRoz\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\obj\\",
+        "projectPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
+        "packagesPath": "C:\\Users\\tudor\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\UnicornRoz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\tudor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

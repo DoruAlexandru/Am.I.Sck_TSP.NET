@@ -1,6 +1,8 @@
 ﻿using IMSCK.Auth;
+using IMSCK.Config;
 using IMSCK.DAO;
 using IMSCK.Model;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
@@ -16,14 +18,22 @@ namespace IMSCK.Service
     {
 
         private readonly ILoginDao loginDAO;
-        private readonly JwtSettings jwtSettings;
+        private readonly string jwtSecret;
 
         public LoginService(ILoginDao loginDAO)
         {
             this.loginDAO = loginDAO;
-            this.jwtSettings = Startup.jwtSettings;
-        }
+            
+            var config = new ConfigurationBuilder()
+                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("appsettings.json").Build();
 
+            var section = config.GetSection(nameof(JWTConfig));
+            var jwtConfig = section.Get<JWTConfig>();
+
+            this.jwtSecret = jwtConfig.Secret;
+
+        }
 
         public async Task<ServiceResponse<Dictionary<string,string>>> loginCheck(LoginDto credentials)
         {
@@ -34,7 +44,7 @@ namespace IMSCK.Service
 
                 var tokenHandler = new JwtSecurityTokenHandler();
                 
-                var key = Encoding.ASCII.GetBytes(jwtSettings.Secret);
+                var key = Encoding.ASCII.GetBytes(this.jwtSecret);
 
                 var tokenDescriptor = new SecurityTokenDescriptor {
 

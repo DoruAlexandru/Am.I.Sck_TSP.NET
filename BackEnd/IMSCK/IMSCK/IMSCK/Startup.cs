@@ -1,4 +1,5 @@
 using IMSCK.Auth;
+using IMSCK.Config;
 using IMSCK.DAO;
 using IMSCK.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,10 +17,20 @@ namespace IMSCK
     public class Startup
     {
         public static readonly JwtSettings jwtSettings = new JwtSettings();
+        private readonly string jwtSecret;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
             configuration.Bind(nameof(jwtSettings), jwtSettings);
+            
+            var config = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json").Build();
+
+            var section = config.GetSection(nameof(JWTConfig));
+            var jwtConfig = section.Get<JWTConfig>();
+
+            this.jwtSecret = jwtConfig.Secret;
         }
 
         public IConfiguration Configuration { get; }
@@ -50,7 +61,7 @@ namespace IMSCK
                   x.TokenValidationParameters = new TokenValidationParameters
                   {
                       ValidateIssuerSigningKey = true,
-                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.Secret)),
+                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(this.jwtSecret)),
                       ValidateIssuer = false,
                       ValidateAudience = false,
                       RequireExpirationTime = false,

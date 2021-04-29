@@ -20,6 +20,13 @@ namespace IMSCK.Service
         {
             ServiceResponse<Dictionary<string, string>> response = new ServiceResponse<Dictionary<string, string>>();
 
+            if (questionnaire.symptoms.Count == 0)
+            {
+                response.Message = "Symptoms are missing";
+                response.Success = false;
+                return response;
+            }
+
             int idQuestionnaire = await questionnaireDAO.addQuestionnaire(questionnaire.username, 50);
 
             if (idQuestionnaire == -1)
