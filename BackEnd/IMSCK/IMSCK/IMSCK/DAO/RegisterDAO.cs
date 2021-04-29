@@ -8,12 +8,12 @@ using System;
 
 namespace IMSCK.DAO
 {
-    public class RegisterDAO : IRegisterDAO
+    public class RegisterDao : IRegisterDao
     {
 
-        private MySqlConnection conn;
+        private readonly MySqlConnection conn;
 
-        public RegisterDAO()
+        public RegisterDao()
         {
             var config = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -26,17 +26,20 @@ namespace IMSCK.DAO
             conn = new MySqlConnection(dbConfig.dbConnectionString);
         }
 
-        public async Task<bool> addUser(RegisterDTO credentials)
+        public async Task<bool> addUser(RegisterDto credentials)
         {
             conn.Open();
 
-            if (!findUser(credentials))
+            if ( ! await findUser(credentials))
             {
                 string md5StringPassword = AppHelper.GetMd5Hash(credentials.Password);
 
                 string sql = "insert into user(userName, password) values('" + credentials.Username + "', '" + md5StringPassword + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                int result = cmd.ExecuteNonQuery();
+                int result = await Task.Run(() =>
+                {
+                    return cmd.ExecuteNonQuery();
+                });
 
                 if (result != 0)
                 {
@@ -49,11 +52,14 @@ namespace IMSCK.DAO
             return false;
         }
 
-        private bool findUser(RegisterDTO credentials)
+        private async Task<bool> findUser(RegisterDto credentials)
         {
             string sql = "select * from user where username = '" + credentials.Username + "';";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader result = cmd.ExecuteReader();
+            MySqlDataReader result = await Task.Run(() =>
+            {
+                return cmd.ExecuteReader();
+            });
 
             bool resp = result.HasRows;
             result.Close();

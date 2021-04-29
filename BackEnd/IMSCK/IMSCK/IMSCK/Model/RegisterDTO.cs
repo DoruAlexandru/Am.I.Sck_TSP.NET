@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace IMSCK.Model
 {
-    public class RegisterDTO
+    public class RegisterDto
     {
         public string Username { get; set; }
         public string Password { get; set; }

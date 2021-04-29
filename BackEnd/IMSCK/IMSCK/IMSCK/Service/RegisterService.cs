@@ -7,23 +7,22 @@ namespace IMSCK.Service
     public class RegisterService
     {
 
-        private IRegisterDAO registerDAO;
+        private readonly IRegisterDao registerDAO;
 
-        public RegisterService()
+        public RegisterService(IRegisterDao registerDAO)
         {
-            this.registerDAO = new RegisterDAO();
+            this.registerDAO = registerDAO;
         }
 
-        public async Task<ServiceResponse<string>> addUser(RegisterDTO credentials)
+        public async Task<ServiceResponse<string>> addUser(RegisterDto credentials)
         {
             ServiceResponse<string> response = new ServiceResponse<string>();
-            if (credentials.Password.Equals(credentials.RePassword))
+            if (credentials.Password.Equals(credentials.RePassword) && await registerDAO.addUser(credentials))
             {   
-                if (await registerDAO.addUser(credentials))
-                {
-                    response.Data = "Account created!";
-                    return response;
-                }
+                
+                response.Data = "Account created!";
+                return response;
+                
             }
             return response;
         }

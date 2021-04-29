@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace IMSCK.DAO
 {
-    interface IRegisterDAO
+    public interface IRegisterDao
     {
-        public Task<bool> addUser(RegisterDTO credentials);
+        public Task<bool> addUser(RegisterDto credentials);
 
     }
 }

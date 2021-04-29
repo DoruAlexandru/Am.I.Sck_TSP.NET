@@ -9,11 +9,11 @@ namespace IMSCK.Service
     public class SymptomService
     {
 
-        private SymptomsDAO symptomsDAO;
+        private readonly ISymptomsDao symptomsDAO;
 
-        public SymptomService()
+        public SymptomService(ISymptomsDao symptomsDAO)
         {
-            this.symptomsDAO = new SymptomsDAO();
+            this.symptomsDAO = symptomsDAO;
         }
 
         public async Task<ServiceResponse<List<Dictionary<string, string>>>> getSymptoms()

@@ -15,16 +15,17 @@ namespace IMSCK.Service
     public class LoginService
     {
 
-        private ILoginDAO loginDAO;
+        private readonly ILoginDao loginDAO;
         private readonly JwtSettings jwtSettings;
 
-        public LoginService()
+        public LoginService(ILoginDao loginDAO)
         {
-            this.loginDAO = new LoginDAO();
+            this.loginDAO = loginDAO;
             this.jwtSettings = Startup.jwtSettings;
         }
 
-        public async Task<ServiceResponse<Dictionary<string,string>>> loginCheck(LoginDTO credentials)
+
+        public async Task<ServiceResponse<Dictionary<string,string>>> loginCheck(LoginDto credentials)
         {
             ServiceResponse<Dictionary<string, string>> response = new ServiceResponse<Dictionary<string, string>>();
             bool loginCheck = await loginDAO.loginCheck(credentials);
@@ -32,7 +33,9 @@ namespace IMSCK.Service
             {
 
                 var tokenHandler = new JwtSecurityTokenHandler();
+                
                 var key = Encoding.ASCII.GetBytes(jwtSettings.Secret);
+
                 var tokenDescriptor = new SecurityTokenDescriptor {
 
                     Subject = new ClaimsIdentity(new[] {

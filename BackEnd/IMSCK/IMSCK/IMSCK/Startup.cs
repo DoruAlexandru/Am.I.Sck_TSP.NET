@@ -1,4 +1,5 @@
 using IMSCK.Auth;
+using IMSCK.DAO;
 using IMSCK.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -7,19 +8,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Text;
 
 namespace IMSCK
 {
     public class Startup
     {
-        public static JwtSettings jwtSettings = new JwtSettings();
-
+        public static readonly JwtSettings jwtSettings = new JwtSettings();
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-            Configuration.Bind(nameof(Startup.jwtSettings), Startup.jwtSettings);
+            configuration.Bind(nameof(jwtSettings), jwtSettings);
         }
 
         public IConfiguration Configuration { get; }
@@ -29,10 +29,15 @@ namespace IMSCK
         {
             services.AddControllers();
 
-            services.AddSingleton(Startup.jwtSettings);
+            services.AddSingleton(jwtSettings);
+
+            services.AddSingleton<ILoginDao, LoginDao>();
+            services.AddSingleton<IQuestionnaireDao, QuestionnaireDao>();
+            services.AddSingleton<IRegisterDao, RegisterDao>();
+            services.AddSingleton<ISymptomsDao, SymptomsDao>();
 
             services.AddScoped<RegisterService, RegisterService>();
-
+            
             services.AddAuthentication(x =>
               {
                   x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -45,14 +50,14 @@ namespace IMSCK
                   x.TokenValidationParameters = new TokenValidationParameters
                   {
                       ValidateIssuerSigningKey = true,
-                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Startup.jwtSettings.Secret)),
+                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.Secret)),
                       ValidateIssuer = false,
                       ValidateAudience = false,
                       RequireExpirationTime = false,
                       ValidateLifetime = true
                   };
               });
-
+            
             services.AddCors(options => options.AddDefaultPolicy(
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader())) ;
         }

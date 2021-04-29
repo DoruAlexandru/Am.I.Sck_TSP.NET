@@ -10,12 +10,12 @@ using IMSCK.Config;
 
 namespace IMSCK.DAO
 {
-    public class QuestionnaireDAO : IQuestionnaireDAO
+    public class QuestionnaireDao : IQuestionnaireDao
     {
 
-        private MySqlConnection conn;
+        private readonly MySqlConnection conn;
 
-        public QuestionnaireDAO()
+        public QuestionnaireDao()
         {
             var config = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -37,7 +37,10 @@ namespace IMSCK.DAO
                 idQuestionnaire + ", '" + username + "', '" + DateTime.Now.ToString("yyyy-MM-dd'T'HH:mm:ss") + "', " + severityPercentage + ");";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            int result = cmd.ExecuteNonQuery();
+            int result = await Task.Run(() =>
+            {
+                return cmd.ExecuteNonQuery();
+            });
 
             if (result != 0)
             {
@@ -54,7 +57,12 @@ namespace IMSCK.DAO
 
             string sql = "delete from questionnairesymptoms where idQuestionnaireSymptoms = " + idQuestionnaire;
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            int result = cmd.ExecuteNonQuery();
+            int result = await Task.Run(() =>
+            {
+                return cmd.ExecuteNonQuery();
+            });
+
+
             if (result == 0)
             {
                 conn.Close();
@@ -74,7 +82,7 @@ namespace IMSCK.DAO
             return true;
         }
 
-        public async Task<bool> addQuestionnaireSymptoms(QuestionnaireDTO questionnaire, int idQuestionnaire)
+        public async Task<bool> addQuestionnaireSymptoms(QuestionnaireDto questionnaire, int idQuestionnaire)
         {
 
             conn.Open();
@@ -85,7 +93,10 @@ namespace IMSCK.DAO
                 string sql = "insert into questionnairesymptoms(idQuestionnaireSymptoms, symptomName, symptomSeverity) values (" +
                     idQuestionnaire + ", '" + key + "', '" + questionnaire.symptoms[key] + "');";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                result = cmd.ExecuteNonQuery();
+                result = await Task.Run(() =>
+                {
+                    return cmd.ExecuteNonQuery();
+                });
 
                 if (result == 0)
                 {
@@ -100,7 +111,11 @@ namespace IMSCK.DAO
         {
             string sql = "select count(idQuestionnaire) from questionnaire;";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader result = cmd.ExecuteReader();
+            MySqlDataReader result = await Task.Run(() =>
+            {
+                return cmd.ExecuteReader();
+            });
+
             result.Read();
             int idQuestionnaire = result.GetInt32(0) + 1;
             result.Close();
@@ -112,10 +127,13 @@ namespace IMSCK.DAO
             conn.Open();
             string sql = $"SELECT idQuestionnaire, userName, date, severityPercentage FROM questionnaire WHERE userName like '{username}'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader result = cmd.ExecuteReader();
+            MySqlDataReader result = await Task.Run(() =>
+            {
+                return cmd.ExecuteReader();
+            });
 
             List<Dictionary<string, string>> questionnaires = new List<Dictionary<string, string>>();
-            Dictionary<string, string> questionnaire = new Dictionary<string, string>();
+            Dictionary<string, string> questionnaire;
 
             while (result.Read())
             {
@@ -141,10 +159,13 @@ namespace IMSCK.DAO
                 $" AND q.idQuestionnaire = {id}";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader result = cmd.ExecuteReader();
+            MySqlDataReader result = await Task.Run(() =>
+            {
+                return cmd.ExecuteReader();
+            });
 
             List<Dictionary<string, string>> symptoms = new List<Dictionary<string, string>>();
-            Dictionary<string, string> symptom = new Dictionary<string, string>();
+            Dictionary<string, string> symptom;
 
             while (result.Read())
             {

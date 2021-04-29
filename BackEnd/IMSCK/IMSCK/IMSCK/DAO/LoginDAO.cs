@@ -8,12 +8,12 @@ using IMSCK.Config;
 
 namespace IMSCK.DAO
 {
-    public class LoginDAO : ILoginDAO
+    public class LoginDao : ILoginDao
     {
 
-        private MySqlConnection conn;
+        private readonly MySqlConnection conn;
 
-        public LoginDAO()
+        public LoginDao()
         {
 
             var config = new ConfigurationBuilder()
@@ -27,16 +27,19 @@ namespace IMSCK.DAO
             conn = new MySqlConnection(dbConfig.dbConnectionString);
         }
 
-        public async Task<bool> loginCheck(LoginDTO credentials)
+        public async Task<bool> loginCheck(LoginDto credentials)
         {
             string md5StringPassword = AppHelper.GetMd5Hash(credentials.Password);
 
             conn.Open();
             string sql = "select * from user where username = '" + credentials.Username + "' and password = '" + md5StringPassword + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader result = cmd.ExecuteReader();
-            
-            if (result.HasRows == true)
+            MySqlDataReader result = await Task.Run(() =>
+            {
+                return cmd.ExecuteReader();
+            });
+
+            if (result.HasRows)
             {
                 conn.Close();
                 return true;

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using IMSCK.Service;
 using IMSCK.DAO;
 using System.Collections.Generic;
+using IMSCK.Auth;
 
 namespace IMSCK.API
 {
@@ -13,16 +14,17 @@ namespace IMSCK.API
     public class LoginController : ControllerBase
     {
 
-        private LoginService loginService;
+        private readonly LoginService loginService;
 
         public LoginController()
         {
-            loginService = new LoginService();
+            loginService = new LoginService(new LoginDao());
+
         }
 
         [Route("checkUser")]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] LoginDTO credentials)
+        public async Task<IActionResult> Post([FromBody] LoginDto credentials)
         {
             ServiceResponse<Dictionary<string, string>> check = await loginService.loginCheck(credentials);
             if (check.Data != null){

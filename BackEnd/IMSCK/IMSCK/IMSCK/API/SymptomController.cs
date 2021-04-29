@@ -15,11 +15,11 @@ namespace IMSCK.API
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class SymptomController : Controller
     {
-        private SymptomService symptomService;
+        private readonly SymptomService symptomService;
 
         public SymptomController()
         {
-            symptomService = new SymptomService();
+            symptomService = new SymptomService(new SymptomsDao());
         }
 
         [HttpGet]

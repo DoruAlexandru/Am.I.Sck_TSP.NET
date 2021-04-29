@@ -9,14 +9,14 @@ namespace IMSCK.Service
 {
     public class QuestionnaireService
     {
-        private QuestionnaireDAO questionnaireDAO;
+        private readonly IQuestionnaireDao questionnaireDAO;
 
-        public QuestionnaireService()
+        public QuestionnaireService(IQuestionnaireDao questionnaireDAO)
         {
-            this.questionnaireDAO = new QuestionnaireDAO();
+            this.questionnaireDAO = questionnaireDAO;
         }
 
-        public async Task<ServiceResponse<Dictionary<string, string>>> addQuestionnaire(QuestionnaireDTO questionnaire)
+        public async Task<ServiceResponse<Dictionary<string, string>>> addQuestionnaire(QuestionnaireDto questionnaire)
         {
             ServiceResponse<Dictionary<string, string>> response = new ServiceResponse<Dictionary<string, string>>();
 
@@ -33,7 +33,7 @@ namespace IMSCK.Service
 
             Dictionary<string, string> data = new Dictionary<string, string>();
 
-            if (resultQuestionnaireSymptoms == false)
+            if (!resultQuestionnaireSymptoms)
             {
                 //rollback insert in questionnaire
                 //rollback insert in questionnaire

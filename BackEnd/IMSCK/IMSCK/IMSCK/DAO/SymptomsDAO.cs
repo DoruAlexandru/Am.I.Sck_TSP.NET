@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace IMSCK.DAO
 {
-    public class SymptomsDAO : ISymptomsDAO
+    public class SymptomsDao : ISymptomsDao
     {
-        private MySqlConnection conn;
+        private readonly MySqlConnection conn;
 
-        public SymptomsDAO()
+        public SymptomsDao()
         {
             var config = new ConfigurationBuilder()
            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -31,10 +31,13 @@ namespace IMSCK.DAO
             conn.Open();
             string sql = "select symptomName, symptomDescription from symptom;";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader result = cmd.ExecuteReader();
+            MySqlDataReader result = await Task.Run(() =>
+            {
+                return cmd.ExecuteReader();
+            });
 
             List<Dictionary<string, string>> symptoms = new List<Dictionary<string, string>>();
-            Dictionary<string, string> symptom = new Dictionary<string, string>();
+            Dictionary<string, string> symptom;
 
             while (result.Read())
             {
@@ -45,7 +48,6 @@ namespace IMSCK.DAO
             }
 
             conn.Close();
-            System.Console.WriteLine(symptoms.Count);
             return symptoms;
         }
     }

@@ -18,22 +18,22 @@ namespace IMSCK.API
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class QuestionnaireController : Controller
     {
-        private QuestionnaireService questionnaireService;
+        private readonly QuestionnaireService questionnaireService;
 
         public QuestionnaireController()
         {
-            questionnaireService = new QuestionnaireService();
+            questionnaireService = new QuestionnaireService(new QuestionnaireDao());
         }
 
 
         [HttpPost]
         [Route("addQuestionnaire")]
-        public async Task<IActionResult> Post([FromBody] QuestionnaireDTO questionnaire)
+        public async Task<IActionResult> Post([FromBody] QuestionnaireDto questionnaire)
         {
             
             ServiceResponse<Dictionary<string, string>> response = await questionnaireService.addQuestionnaire(questionnaire);
 
-            if (response.Success == true)
+            if (response.Success)
             {
                 return Ok(response);
             }

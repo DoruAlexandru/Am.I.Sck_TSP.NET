@@ -10,7 +10,7 @@ namespace IMSCK.API
     [ApiController]
     public class RegisterController : Controller
     {
-        private RegisterService registerService;
+        private readonly RegisterService registerService;
 
         public RegisterController(RegisterService registerService)
         {
@@ -20,7 +20,7 @@ namespace IMSCK.API
 
         [Route("createAccount")]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] RegisterDTO credentials)
+        public async Task<IActionResult> Post([FromBody] RegisterDto credentials)
         {
             
             ServiceResponse<string> check = await registerService.addUser(credentials);

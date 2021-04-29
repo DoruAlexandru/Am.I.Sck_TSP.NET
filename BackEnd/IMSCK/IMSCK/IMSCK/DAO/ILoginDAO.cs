@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace IMSCK.DAO
 {
-    interface ILoginDAO
+    public interface ILoginDao
     {
-        public Task<bool> loginCheck(LoginDTO credentials);
+        public Task<bool> loginCheck(LoginDto credentials);
 
     }
 }

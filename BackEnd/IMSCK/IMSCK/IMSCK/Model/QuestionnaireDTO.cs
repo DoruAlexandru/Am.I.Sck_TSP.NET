@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMSCK.Model
 {
-    public class QuestionnaireDTO
+    public class QuestionnaireDto
     {
         public Dictionary<string, string> symptoms { get; set; }
 
