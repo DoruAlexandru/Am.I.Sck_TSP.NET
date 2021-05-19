@@ -1,10 +1,8 @@
-﻿using IMSCK.Auth;
-using IMSCK.Config;
+﻿using IMSCK.Config;
 using IMSCK.DAO;
 using IMSCK.Model;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;

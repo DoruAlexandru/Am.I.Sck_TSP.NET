@@ -1,10 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace IMSCK.Auth
+﻿namespace IMSCK.Auth
 {
     public class JwtSettings
     {
