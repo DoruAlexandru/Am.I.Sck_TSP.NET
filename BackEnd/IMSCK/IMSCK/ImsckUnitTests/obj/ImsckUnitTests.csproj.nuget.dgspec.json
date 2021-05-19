@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj": {}
+    "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj": {
+    "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj",
+        "projectUniqueName": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj",
         "projectName": "ImsckUnitTests",
-        "projectPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj",
-        "packagesPath": "C:\\Users\\tudor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\obj\\",
+        "projectPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\ImsckUnitTests.csproj",
+        "packagesPath": "C:\\Users\\UnicornRoz\\.nuget\\packages\\",
+        "outputPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\ImsckUnitTests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tudor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\UnicornRoz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
-                "projectPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj"
+              "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
+                "projectPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj"
               }
             }
           }
@@ -84,17 +88,21 @@
         }
       }
     },
-    "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
+    "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
+        "projectUniqueName": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
         "projectName": "IMSCK",
-        "projectPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
-        "packagesPath": "C:\\Users\\tudor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tudor\\source\\repos\\amisck\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\obj\\",
+        "projectPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj",
+        "packagesPath": "C:\\Users\\UnicornRoz\\.nuget\\packages\\",
+        "outputPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tudor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\UnicornRoz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

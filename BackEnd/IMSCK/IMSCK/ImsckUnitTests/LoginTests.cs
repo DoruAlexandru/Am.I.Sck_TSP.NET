@@ -14,8 +14,8 @@ namespace ImsckUnitTests
         {
             LoginService loginService = new LoginService(new LoginDao());
             LoginDto credentials = new();
-            credentials.Username = "Tudor";
-            credentials.Password = "pass";
+            credentials.Username = "luci";
+            credentials.Password = "luci";
             ServiceResponse<Dictionary<string, string>> check = await loginService.loginCheck(credentials);
 
             bool expected = true;
@@ -34,8 +34,8 @@ namespace ImsckUnitTests
         {
             LoginService loginService = new LoginService(new LoginDao());
             LoginDto credentials = new();
-            credentials.Username = "Tudor";
-            credentials.Password = "wrongPass";
+            credentials.Username = "luci";
+            credentials.Password = "luci1";
             ServiceResponse<Dictionary<string, string>> check = await loginService.loginCheck(credentials);
 
             bool expected = false;

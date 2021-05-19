@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>ImsckUnitTests</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>58140051-9fd9-4a13-9f85-e992781b129d</ProjectGuid>
+  <FullPath>D:\Facultate\Luci\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\ImsckUnitTests\ImsckUnitTests.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="D:\Facultate\Luci\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\.sonarqube\conf\1\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">D:\Facultate\Luci\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\ImsckUnitTests\bin\Debug\net6.0\ImsckUnitTests.dll.RoslynCA.json|D:\Facultate\Luci\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\ImsckUnitTests\bin\Debug\net6.0\ImsckUnitTests.dll.RoslynCA.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">D:\Facultate\Luci\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\.sonarqube\out\1</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net6.0</TargetFramework>
+</ProjectInfo>

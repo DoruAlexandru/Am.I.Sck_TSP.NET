@@ -27,8 +27,8 @@ namespace IMSCK
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
             .AddJsonFile("appsettings.json").Build();
 
-            var section = config.GetSection(nameof(JWTConfig));
-            var jwtConfig = section.Get<JWTConfig>();
+            var section = config.GetSection(nameof(JwtConfig));
+            var jwtConfig = section.Get<JwtConfig>();
 
             this.jwtSecret = jwtConfig.Secret;
         }

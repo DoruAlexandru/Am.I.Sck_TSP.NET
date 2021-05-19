@@ -1,11 +1,9 @@
 ﻿using IMSCK.Model;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 using IMSCK.Service;
 using IMSCK.DAO;
 using System.Collections.Generic;
-using IMSCK.Auth;
 
 namespace IMSCK.API
 {

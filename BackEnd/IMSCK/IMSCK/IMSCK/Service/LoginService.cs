@@ -1,10 +1,8 @@
-﻿using IMSCK.Auth;
-using IMSCK.Config;
+﻿using IMSCK.Config;
 using IMSCK.DAO;
 using IMSCK.Model;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,8 +26,8 @@ namespace IMSCK.Service
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json").Build();
 
-            var section = config.GetSection(nameof(JWTConfig));
-            var jwtConfig = section.Get<JWTConfig>();
+            var section = config.GetSection(nameof(JwtConfig));
+            var jwtConfig = section.Get<JwtConfig>();
 
             this.jwtSecret = jwtConfig.Secret;
 

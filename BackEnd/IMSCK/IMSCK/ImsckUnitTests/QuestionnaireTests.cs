@@ -35,8 +35,8 @@ namespace ImsckUnitTests
         {
             QuestionnaireService questionnaireService = new QuestionnaireService(new QuestionnaireDao());
 
-            string username = "Tudor";
-            int questionnaireId = 6;
+            string username = "Gigel";
+            int questionnaireId = 1;
 
             ServiceResponse<List<Dictionary<string, string>>> response = await questionnaireService.getQuestionnaireSymptoms(username, questionnaireId);
 
