@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>GoogleApi</id>
+    <version>3.10.8</version>
+    <authors>Michael Vivet</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>icon.jpg</icon>
+    <projectUrl>https://github.com/vivet/GoogleApi</projectUrl>
+    <description>Google Places, Maps, Roads, Search and Translate. Requests and Responses are complete with Google api documentation and references.</description>
+    <releaseNotes>- Added string extension for getting language from ISO-639-1 string (thanks meriturva).</releaseNotes>
+    <tags>google api map maps place places elevation snaptoroad snaptoroads snap road roads speed speedlimit coordinate geo geocode geocoder geocoding geolocation search text nearby radar translate translation detect detection language languages nearest geography point geocoordinate address location latitude longitude distance duration matrix distancematrix direction directions travel path journey trip photo photos timezone time zone autocomplete auto-complete traffic spatial</tags>
+    <repository type="GitHub" url="https://github.com/vivet/GoogleApi.git" commit="36f18ebcf9730a0440a8018b62173a4772e68f0f" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="10.0.3" exclude="Build,Analyzers" />
+        <dependency id="Portable.BouncyCastle" version="1.8.1.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.1">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="10.0.3" exclude="Build,Analyzers" />
+        <dependency id="Portable.BouncyCastle" version="1.8.1.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard1.4">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="10.0.3" exclude="Build,Analyzers" />
+        <dependency id="Portable.BouncyCastle" version="1.8.1.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Newtonsoft.Json" version="10.0.3" exclude="Build,Analyzers" />
+        <dependency id="Portable.BouncyCastle" version="1.8.1.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="Newtonsoft.Json" version="10.0.3" exclude="Build,Analyzers" />
+        <dependency id="Portable.BouncyCastle" version="1.8.1.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\net45\GoogleApi.pdb" target="lib\net45\GoogleApi.pdb" />
+    <file src="C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard1.1\GoogleApi.pdb" target="lib\netstandard1.1\GoogleApi.pdb" />
+    <file src="C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard1.4\GoogleApi.pdb" target="lib\netstandard1.4\GoogleApi.pdb" />
+    <file src="C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard2.0\GoogleApi.pdb" target="lib\netstandard2.0\GoogleApi.pdb" />
+    <file src="C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard2.1\GoogleApi.pdb" target="lib\netstandard2.1\GoogleApi.pdb" />
+  </files>
+</package>

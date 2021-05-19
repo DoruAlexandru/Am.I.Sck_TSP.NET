@@ -1,0 +1,12 @@
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.AssemblyInfoInputs.cache
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.AssemblyInfo.cs
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.csproj.CoreCompileInputs.cache
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.sourcelink.json
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.csproj.AssemblyReference.cache
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard2.1\GoogleApi.deps.json
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard2.1\GoogleApi.dll
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard2.1\GoogleApi.pdb
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\bin\Debug\netstandard2.1\GoogleApi.xml
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.dll
+C:\Users\tudor\source\repos\amisck\Am.I.Sck_TSP.NET\BackEnd\IMSCK\IMSCK\GoogleApi\obj\Debug\netstandard2.1\GoogleApi.pdb

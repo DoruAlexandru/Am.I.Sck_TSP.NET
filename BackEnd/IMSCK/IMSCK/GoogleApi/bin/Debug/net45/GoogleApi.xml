@@ -1,0 +1,1407 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GoogleApi</name>
+    </assembly>
+    <members>
+        <member name="T:GoogleApi.Entities.BaseRequest">
+            <summary>
+            Base abstract class for requests.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseRequest.BaseUrl">
+            <summary>
+            Base Url (abstract).
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseRequest.KeyName">
+            <summary>
+            Key Name.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseRequest.Key">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IRequest.Key"/>.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseRequest.ClientId">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IRequest.ClientId"/>.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseRequest.IsSsl">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IRequest.IsSsl"/>.
+            </summary>
+        </member>
+        <member name="M:GoogleApi.Entities.BaseRequest.GetUri">
+            <summary>
+            See <see cref="M:GoogleApi.Entities.Interfaces.IRequest.GetUri"/>.
+            </summary>
+            <returns>The <see cref="T:System.Uri"/>.</returns>
+        </member>
+        <member name="M:GoogleApi.Entities.BaseRequest.GetQueryStringParameters">
+            <summary>
+            See <see cref="M:GoogleApi.Entities.Interfaces.IRequest.GetQueryStringParameters"/>.
+            </summary>
+            <returns>The <see cref="T:System.Collections.Generic.IList`1"/> collection.</returns>
+        </member>
+        <member name="T:GoogleApi.Entities.BaseResponse">
+            <summary>
+            Base abstract class for responses.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponse.RawJson">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IResponse.RawJson"/>.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponse.RawQueryString">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IResponse.RawQueryString"/>.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponse.Status">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IResponse.Status"/>.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponse.ErrorMessage">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IResponse.ErrorMessage"/>.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponse.HtmlAttributions">
+            <summary>
+            See <see cref="P:GoogleApi.Entities.Interfaces.IResponse.HtmlAttributions"/>.
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.BaseResponseStream">
+            <summary>
+            Base Response Stream.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponseStream.Buffer">
+            <summary>
+            Buffer.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.BaseResponseStream.Stream">
+            <summary>
+            Stream.
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.AddressComponent">
+            <summary>
+            Address Component.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.Common.AddressComponent.ShortName">
+            <summary>
+            short_name is an abbreviated textual name for the address component, if available. For example, an address component for the state of Alaska may have a long_name of "Alaska" and a short_name of "AK" using the 2-letter postal abbreviation.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.Common.AddressComponent.LongName">
+            <summary>
+            long_name is the full text description or name of the address component as returned by the Geocoder.
+            </summary>
+        </member>
+        <member name="P:GoogleApi.Entities.Common.AddressComponent.Types">
+            <summary>
+            types[] is an array indicating the type of the address component.
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Converters.StringBooleanConverter">
+            <summary>
+            String Boolean Json Converter.
+            Converter for a <see cref="T:System.String"/> to a <see cref="T:System.Boolean"/>.
+            If the string value is "1" then true, otherwise false.
+            </summary>
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringBooleanConverter.CanConvert(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringBooleanConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringBooleanConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Converters.StringEnumListConverter`1">
+            <summary>
+            String Enum List Json Converter.
+            Converter for a comma separated <see cref="T:System.String"/> of items, to a <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringEnumListConverter`1.CanConvert(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringEnumListConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringEnumListConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Converters.StringEnumOrDefaultConverter`1">
+            <summary>
+            Converts a <see cref="T:System.String"/> to an <see cref="T:System.Enum"/> of type <typeparamref name="T"/>.
+            If no enum member is found, default(T) it returned.
+            </summary>
+            <typeparam name="T"><see cref="T:System.Enum"/> type.</typeparam>
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringEnumOrDefaultConverter`1.CanConvert(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringEnumOrDefaultConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Converters.StringEnumOrDefaultConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.AddressComponentType">
+            <summary>
+            Location types.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Uknown">
+            <summary>
+            Unknown is set when unmapped place location types is returned.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Street_Address">
+            <summary>
+            Indicates a precise street address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Route">
+            <summary>
+            Indicates a named route (such as "US 101").
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Intersection">
+            <summary>
+            Indicates a major intersection, usually of two major roads.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Political">
+            <summary>
+            Indicates a political entity. Usually, this type indicates a polygon of some civil administration.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Country">
+            <summary>
+            Indicates the national political entity, and is typically the highest order type returned by the Geocoder.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Administrative_Area_Level_1">
+            <summary>
+            Indicates a first-order civil entity below the country level. Within the United States, these administrative levels are states. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Administrative_Area_Level_2">
+            <summary>
+            Indicates a second-order civil entity below the country level. Within the United States, these administrative levels are counties. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Administrative_Area_Level_3">
+            <summary>
+            Indicates a third-order civil entity below the country level. This type indicates a minor civil division. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Administrative_Area_Level_4">
+            <summary>
+            Indicates a fourth-order civil entity below the country level. This type indicates a minor civil division. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Administrative_Area_Level_5">
+            <summary>
+            Indicates a fifth-order civil entity below the country level. This type indicates a minor civil division. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Colloquial_Area">
+            <summary>
+            Indicates a commonly-used alternative name for the entity.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Locality">
+            <summary>
+            Indicates an incorporated city or town political entity.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Ward">
+            <summary>
+            Ward indicates a specific type of Japanese locality, to facilitate distinction between multiple locality components within a Japanese address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Sublocality">
+            <summary>
+            indicates an first-order civil entity below a locality
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Sublocality_Level_1">
+            <summary>
+            indicates an first-order civil entity below a locality
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.SublocalityLevel2">
+            <summary>
+            indicates an second-order civil entity below a locality
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Sublocality_Level_3">
+            <summary>
+            indicates an third-order civil entity below a locality
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Sublocality_Level_4">
+            <summary>
+            indicates an first-order civil entity below a locality
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Sublocality_Level_5">
+            <summary>
+            indicates an first-order civil entity below a locality
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Neighborhood">
+            <summary>
+            Indicates a named neighborhood
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Premise">
+            <summary>
+            Indicates a named location, usually a building or collection of buildings with a common name
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Subpremise">
+            <summary>
+            Indicates a first-order entity below a named location, usually a singular building within a collection of buildings with a common name
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Postal_Code">
+            <summary>
+            Indicates a postal code as used to address postal mail within the country.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Natural_Feature">
+            <summary>
+            Indicates a prominent natural feature.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Airport">
+            <summary>
+            Indicates an airport.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Park">
+            <summary>
+            Indicates a named park.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Floor">
+            <summary>
+            Indicates the floor of a building address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Establishment">
+            <summary>
+            Establishment typically indicates a place that has not yet been categorized.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Point_Of_Interest">
+            <summary>
+            Indicates a named point of interest. Typically, these "POI"s are prominent local entities that don't easily fit in another category such as "Empire State Building" or "Statue of Liberty."
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Parking">
+            <summary>
+            Parking indicates a parking lot or parking structure.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Post_Box">
+            <summary>
+            post_box indicates a specific postal box.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Postal_Town">
+            <summary>
+            postal_town indicates a grouping of geographic areas, such as locality and sublocality, used for mailing addresses in some countries.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Room">
+            <summary>
+            room indicates the room of a building address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Street_Number">
+            <summary>
+            street_number indicates the precise street number.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Bus_Station">
+            <summary>
+            Indicate the location of a bus stop.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Train_Station">
+            <summary>
+            Indicate the location of a train stop.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Transit_Station">
+            <summary>
+            Indicate the location of a public transit stop.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Geocode">
+            <summary>
+            Geocode.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Postal_Code_Prefix">
+            <summary>
+            Postal code prefix.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.AddressComponentType.Postal_Code_Suffix">
+            <summary>
+            Postal code suffix.
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.BusinessStatus">
+            <summary>
+            Business Status.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.BusinessStatus.Operational">
+            <summary>
+            Operational.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.BusinessStatus.Closed_Temporarily">
+            <summary>
+            Closed Temporarily.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.BusinessStatus.Closed_Permanently">
+            <summary>
+            Closed Permanently
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.Component">
+            <summary>
+            The components that can be filtered.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Component.Route">
+            <summary>
+            Route matches long or short name of a route.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Component.Locality">
+            <summary>
+            Locality matches against both locality and sublocality types. 
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Component.Administrative_Area">
+            <summary>
+            Administrative_area matches all the administrative_area levels. 
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Component.Postal_Code">
+            <summary>
+            Postal_code matches postal_code and postal_code_prefix.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Component.Country">
+            <summary>
+            Country matches a country name or a two letter ISO 3166-1 country code.
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.Extensions.LanguageExtension">
+            <summary>
+            Language Extension methods.
+            </summary>
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Enums.Extensions.LanguageExtension.ToCode(GoogleApi.Entities.Common.Enums.Language)">
+            <summary>
+            Gets the ISO-639-1 code for the specified <see cref="T:GoogleApi.Entities.Common.Enums.Language"/>.
+            </summary>
+            <param name="language">The <see cref="T:GoogleApi.Entities.Common.Enums.Language"/>.</param>
+            <returns>The ISO-639-1 code matching the passed <paramref name="language"/>.</returns>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.Extensions.StringExtension">
+            <summary>
+            String Extensions.
+            </summary>
+        </member>
+        <member name="M:GoogleApi.Entities.Common.Enums.Extensions.StringExtension.FromCode(System.String)">
+            <summary>
+            Gets the <see cref="T:GoogleApi.Entities.Common.Enums.Language"/> for the specified ISO-639-1 code.
+            </summary>
+            <param name="language">The ISO-639-1 code.</param>
+            <returns>The <see cref="T:GoogleApi.Entities.Common.Enums.Language"/>.</returns>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.Language">
+            <summary>
+            Supported Languages.
+            By default the API will attempt to load the most appropriate language based on the users location or browser settings. 
+            Some APIs allow you to explicitly set a language when you make a request. 
+            https://developers.google.com/maps/faq#languagesupport
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Afrikaans">
+            <summary>
+            Afrikaans
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Albanian">
+            <summary>
+            Albanian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Amharic">
+            <summary>
+            Amharic
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Arabic">
+            <summary>
+            Arabic
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Armenian">
+            <summary>
+            Armenian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Azerbaijani">
+            <summary>
+            Azerbaijani
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Basque">
+            <summary>
+            Basque
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Belarusian">
+            <summary>
+            Belarusian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Bengali">
+            <summary>
+            Bengali
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Bosnian">
+            <summary>
+            Bosnian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Bulgarian">
+            <summary>
+            Bulgarian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Burmese">
+            <summary>
+            Burmese
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Catalan">
+            <summary>
+            Catalan
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Chinese">
+            <summary>
+            Chinese
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.ChineseSimplified">
+            <summary>
+            Chinese Simplified
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.ChineseHongKong">
+            <summary>
+            Chinese Hong Kong
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.ChineseTraditional">
+            <summary>
+            Chinese Traditional
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Croatian">
+            <summary>
+            Croatian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Czech">
+            <summary>
+            Czech
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Danish">
+            <summary>
+            Danish
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Dutch">
+            <summary>
+            Dutch
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.English">
+            <summary>
+            English
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.EnglishAustralian">
+            <summary>
+            English (Australian)
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.EnglishGreatBritain">
+            <summary>
+            English (Great Britain)
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Estonian">
+            <summary>
+            Estonian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Farsi">
+            <summary>
+            Farsi
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Finnish">
+            <summary>
+            Finnish
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Filipino">
+            <summary>
+            Filipino
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.French">
+            <summary>
+            French
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.FrenchCanada">
+            <summary>
+            French Canada
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Galician">
+            <summary>
+            Galician
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Georgian">
+            <summary>
+            Georgian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.German">
+            <summary>
+            German
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Greek">
+            <summary>
+            Greek
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Gujarati">
+            <summary>
+            Gujarati
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Hebrew">
+            <summary>
+            Hebrew
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Hindi">
+            <summary>
+            Hindi
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Hungarian">
+            <summary>
+            Hungarian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Icelandic">
+            <summary>
+            Icelandic
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Indonesian">
+            <summary>
+            Indonesian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Italian">
+            <summary>
+            Italian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Japanese">
+            <summary>
+            Japanese
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Kannada">
+            <summary>
+            Kannada
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Kazakh">
+            <summary>
+            Kazakh
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Khmer">
+            <summary>
+            Khmer
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Korean">
+            <summary>
+            Korean
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Kyrgyz">
+            <summary>
+            Kyrgyz
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Lao">
+            <summary>
+            Lao
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Latvian">
+            <summary>
+            Latvian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Lithuanian">
+            <summary>
+            Lithuanian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Macedonian">
+            <summary>
+            Macedonian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Malay">
+            <summary>
+            Malay
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Malayalam">
+            <summary>
+            Malayalam
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Marathi">
+            <summary>
+            Marathi
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Mongolian">
+            <summary>
+            Mongolian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Nepali">
+            <summary>
+            Nepali
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Norwegian">
+            <summary>
+            Norwegian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Polish">
+            <summary>
+            Polish
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Portuguese">
+            <summary>
+            Portuguese
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.PortugueseBrazil">
+            <summary>
+            Portuguese (Brazil)
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.PortuguesePortugal">
+            <summary>
+            Portuguese (Portugal)
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Punjabi">
+            <summary>
+            Punjabi
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Romanian">
+            <summary>
+            Romanian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Russian">
+            <summary>
+            Russian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Serbian">
+            <summary>
+            Serbian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Sinhalese">
+            <summary>
+            Sinhalese
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Slovak">
+            <summary>
+            Slovak
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Slovenian">
+            <summary>
+            Slovenian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Spanish">
+            <summary>
+            Spanish
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.SpanishLatinAmerica">
+            <summary>
+            Spanish Latin America
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Swahili">
+            <summary>
+            Swahili
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Swedish">
+            <summary>
+            Swedish
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Tamil">
+            <summary>
+            Tamil
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Telugu">
+            <summary>
+            Telugu
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Thai">
+            <summary>
+            Thai
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Turkish">
+            <summary>
+            Turkish
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Ukrainian">
+            <summary>
+            Ukrainian
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Urdu">
+            <summary>
+            Urdu
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Uzbek">
+            <summary>
+            Uzbek
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Vietnamese">
+            <summary>
+            Vietnamese
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.Language.Zulu">
+            <summary>
+            Zulu
+            </summary>
+        </member>
+        <member name="T:GoogleApi.Entities.Common.Enums.PlaceLocationType">
+            <summary>
+            Place Location Types
+            https://developers.google.com/places/supported_types#table1
+            https://developers.google.com/places/supported_types#table2
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Uknown">
+            <summary>
+            Unknown is set when unmapped place location types is returned.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Geocode">
+            <summary>
+            Geocode instructs the Place Autocomplete service to return only geocoding results, 
+            rather than business results. Generally, you use this request to disambiguate results where the location specified may be indeterminate.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Street_Address">
+            <summary>
+            Indicates a precise street address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Route">
+            <summary>
+            Indicates a named route (such as "US 101").
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Intersection">
+            <summary>
+            Indicates a major intersection, usually of two major roads.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Political">
+            <summary>
+            Indicates a political entity. Usually, this type indicates a polygon of some civil administration.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Country">
+            <summary>
+            Indicates the national political entity, and is typically the highest order type returned by the Geocoder.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Administrative_Area_Level_1">
+            <summary>
+            Indicates a first-order civil entity below the country level. Within the United States, 
+            these administrative levels are states. Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Administrative_Area_Level_2">
+            <summary>
+            Indicates a second-order civil entity below the country level. Within the United States, 
+            these administrative levels are counties. Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Administrative_Area_Level_3">
+            <summary>
+            Indicates a third-order civil entity below the country level. This type indicates a minor civil division. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Administrative_Area_Level_4">
+            <summary>
+            Indicates a fourth-order civil entity below the country level. This type indicates a minor civil division. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Administrative_Area_Level_5">
+            <summary>
+            Indicates a fifth-order civil entity below the country level. This type indicates a minor civil division. 
+            Not all nations exhibit these administrative levels.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Colloquial_Area">
+            <summary>
+            Indicates a commonly-used alternative name for the entity.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Locality">
+            <summary>
+            Indicates an incorporated city or town political entity.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Sublocality">
+            <summary>
+            locality.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Sublocality_Level_1">
+            <summary>
+            indicates an first-order civil entity below a locality.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Sublocality_Level_2">
+            <summary>
+            indicates an second-order civil entity below a locality.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Sublocality_Level_3">
+            <summary>
+            indicates an third-order civil entity below a locality.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Sublocality_Level_4">
+            <summary>
+            indicates an first-order civil entity below a locality.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Sublocality_Level_5">
+            <summary>
+            indicates an first-order civil entity below a locality.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Neighborhood">
+            <summary>
+            Indicates a named neighborhood
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Premise">
+            <summary>
+            Indicates a named location, usually a building or collection of buildings with a common name.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Subpremise">
+            <summary>
+            Indicates a first-order entity below a named location, usually a singular building within a collection of buildings with a common name.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Postal_Code">
+            <summary>
+            Indicates a postal code as used to address postal mail within the country.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Postal_Code_Prefix">
+            <summary>
+            Indicates a postal code prefix.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Postal_Code_Suffix">
+            <summary>
+            Indicates a postal code suffix.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Natural_Feature">
+            <summary>
+            Indicates a prominent natural feature.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Point_Of_Interest">
+            <summary>
+            Indicates a named point of interest. Typically, these "POI"s are prominent local entities that don't easily fit in another category such as "Empire State Building" or "Statue of Liberty."
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Floor">
+            <summary>
+            Indicates the floor of a building address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Post_Box">
+            <summary>
+            post_box indicates a specific postal box.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Postal_Town">
+            <summary>
+            postal_town indicates a grouping of geographic areas, such as locality and sublocality, used for mailing addresses in some countries.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Room">
+            <summary>
+            room indicates the room of a building address.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Street_Number">
+            <summary>
+            street_number indicates the precise street number.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Transit_Station">
+            <summary>
+            Indicate the location of a public transit stop.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Accounting">
+            <summary>
+            Accounting.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Airport">
+            <summary>
+            Airport.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Amusement_Park">
+            <summary>
+            Amusement Park.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Aquarium">
+            <summary>
+            Aquarium.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Art_Gallery">
+            <summary>
+            Art Gallery.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Atm">
+            <summary>
+            Atm.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Bakery">
+            <summary>
+            Bakery.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Bank">
+            <summary>
+            Bank.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Bar">
+            <summary>
+            Bar.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Beauty_Salon">
+            <summary>
+            Beauty Salon.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Bicycle_Store">
+            <summary>
+            Bicycle Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Book_Store">
+            <summary>
+            Book Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Bowling_Alley">
+            <summary>
+            Bowling Alley.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Bus_Station">
+            <summary>
+            Bus Station.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Cafe">
+            <summary>
+            Cafe.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Campground">
+            <summary>
+            Campground.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Car_Dealer">
+            <summary>
+            Car Dealer.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Car_Rental">
+            <summary>
+            Car Rental.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Car_Repair">
+            <summary>
+            Car Repair.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Car_Wash">
+            <summary>
+            Car Wash.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Casino">
+            <summary>
+            Casino.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Cemetery">
+            <summary>
+            Cemetery.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Church">
+            <summary>
+            Church.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.City_Hall">
+            <summary>
+            City Hall.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Clothing_Store">
+            <summary>
+            Clothing Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Convenience_Store">
+            <summary>
+            Convenience Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Courthouse">
+            <summary>
+            Courthouse.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Dentist">
+            <summary>
+            Dentist.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Department_Store">
+            <summary>
+            Department Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Doctor">
+            <summary>
+            Doctor.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Electrician">
+            <summary>
+            Electrician.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Electronics_Store">
+            <summary>
+            Electronics Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Embassy">
+            <summary>
+            Embassy.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Establishment">
+            <summary>
+            Establishment.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Finance">
+            <summary>
+            Finance.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Fire_Station">
+            <summary>
+            Fire Station.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Florist">
+            <summary>
+            Florist.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Food">
+            <summary>
+            Food.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Funeral_Home">
+            <summary>
+            Funeral Home.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Furniture_Store">
+            <summary>
+            Furniture Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Gas_Station">
+            <summary>
+            Gas Station.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.General_Contractor">
+            <summary>
+            General Contractor.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Supermarket">
+            <summary>
+            Supermarket.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Grocery_Or_Supermarket">
+            <summary>
+            Grocery Or Supermarket.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Gym">
+            <summary>
+            Gym.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Hair_Care">
+            <summary>
+            Hair Care.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Hardware_Store">
+            <summary>
+            Hardware Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Health">
+            <summary>
+            Health.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Hindu_Temple">
+            <summary>
+            Hindu Temple.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Home_Goods_Store">
+            <summary>
+            Home Goods Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Hospital">
+            <summary>
+            Hospital.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Insurance_Agency">
+            <summary>
+            Insurance Agency.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Jewelry_Store">
+            <summary>
+            Jewelry Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Laundry">
+            <summary>
+            Laundry.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Lawyer">
+            <summary>
+            Lawyer.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Library">
+            <summary>
+            Library.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Liquor_Store">
+            <summary>
+            Liquor Store.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Local_Government_Office">
+            <summary>
+            Local Government Office.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Locksmith">
+            <summary>
+            Locksmith.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Lodging">
+            <summary>
+            Lodging.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Meal_Delivery">
+            <summary>
+            Meal Delivery.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Meal_Takeaway">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Mosque">
+            <summary>
+            Mosque.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Movie_Rental">
+            <summary>
+            Movie Rental.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Movie_Theater">
+            <summary>
+            Movie Theater.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Moving_Company">
+            <summary>
+            Moving Company.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Museum">
+            <summary>
+            Museum.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Night_Club">
+            <summary>
+            Night Club.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Painter">
+            <summary>
+            Painter.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Park">
+            <summary>
+            Park.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Parking">
+            <summary>
+            Parking.
+            </summary>
+        </member>
+        <member name="F:GoogleApi.Entities.Common.Enums.PlaceLocationType.Pet_Store">
+            <summary>
+            Pet Store.
+            </summary>
+        </member>
+        <member

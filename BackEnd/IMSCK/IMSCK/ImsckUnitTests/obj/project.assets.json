@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net5.0": {
       "BouncyCastle.NetCore/1.8.5": {
         "type": "package",
         "compile": {
@@ -2223,8 +2223,9 @@
       },
       "IMSCK/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
+        "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\GoogleApi\\GoogleApi.csproj": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.5",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.5",
           "Microsoft.AspNetCore.Identity.UI": "5.0.5",
@@ -7416,7 +7417,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
+    "net5.0": [
       "IMSCK >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.8.3",
       "coverlet.collector >= 1.3.0",
@@ -7446,15 +7447,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {
             "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj": {
               "projectPath": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\IMSCK\\IMSCK.csproj"
@@ -7469,8 +7470,8 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -7511,5 +7512,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.3.21202.5\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\GoogleApi\\GoogleApi.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "libraryId": "D:\\Facultate\\Luci\\Am.I.Sck_TSP.NET\\BackEnd\\IMSCK\\IMSCK\\GoogleApi\\GoogleApi.csproj",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
